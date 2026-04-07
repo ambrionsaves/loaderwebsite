@@ -3,32 +3,23 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Ambrion Scripts</title>
+  <title>403 — Restricted</title>
   <link rel="stylesheet" href="style.css"/>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <!-- fallback since SF Pro isn't on Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-
-  <!-- Background blobs -->
   <div class="bg-blob b1"></div>
   <div class="bg-blob b2"></div>
   <div class="bg-blob b3"></div>
-
-  <!-- Noise grain -->
   <div class="grain"></div>
 
   <main class="main">
-
-    <!-- ── LOCK ICON ── -->
-    <div class="lock-wrap" id="lockWrap">
+    <div class="lock-wrap">
       <div class="lock-ring r3"></div>
       <div class="lock-ring r2"></div>
       <div class="lock-ring r1"></div>
       <div class="lock-icon-bg">
-        <svg class="lock-icon" viewBox="0 0 44 52" fill="none">
+        <svg viewBox="0 0 44 52" fill="none" width="28" height="34">
           <rect x="3" y="22" width="38" height="27" rx="7" fill="white" fill-opacity="0.12" stroke="white" stroke-opacity="0.5" stroke-width="1.5"/>
           <path d="M12 22V16.5C12 10.7 16.5 6 22 6C27.5 6 32 10.7 32 16.5V22" stroke="white" stroke-opacity="0.6" stroke-width="2" stroke-linecap="round"/>
           <circle cx="22" cy="35" r="3.5" fill="white" fill-opacity="0.7"/>
@@ -37,22 +28,16 @@
       </div>
     </div>
 
-    <!-- ── CONTENT ── -->
     <div class="content">
       <div class="eyebrow">RESTRICTED ACCESS</div>
-      <h1 class="title">This page is<br><span class="title-em">locked.</span></h1>
-      <p class="subtitle">
-        You don't have permission to view this content.<br>
-        Authorized systems only.
-      </p>
+      <h1 class="title">Access<br><span class="title-em">Denied.</span></h1>
+      <p class="subtitle">You don't have permission to view this resource.<br>Authorized systems only.</p>
 
-      <!-- Status pill -->
       <div class="status-pill">
         <span class="status-dot"></span>
-        <span class="status-text" id="statusText">Access denied — logging request</span>
+        <span id="statusText">Access denied — logging request</span>
       </div>
 
-      <!-- Info row -->
       <div class="info-row">
         <div class="info-item">
           <div class="info-label">STATUS</div>
@@ -65,36 +50,12 @@
         </div>
         <div class="info-divider"></div>
         <div class="info-item">
-          <div class="info-label">GAMES</div>
-          <div class="info-val">8 SUPPORTED</div>
+          <div class="info-label">ENDPOINT</div>
+          <div class="info-val">/myscript</div>
         </div>
       </div>
     </div>
-
   </main>
-
-  <!-- Hidden script payload — served to authorized loaders -->
-  <script id="lua-payload" type="text/lua" style="display:none">
---// Ambrion Multi-Game Loader
-local gameId = game.PlaceId
-local scripts = {
-    [17625359962] = "loadstring(game:HttpGet('https://raw.githubusercontent.com/ambrionsaves/rivals/refs/heads/main/versionpicker', true))()",
-    [13772394625] = "loadstring(game:HttpGet('https://raw.githubusercontent.com/ambrionsaves/bladeball/refs/heads/main/Ambrion', true))()",
-    [109983668079237] = "loadstring(game:HttpGet('https://raw.githubusercontent.com/ambrionsaves/steal-a-brainrot/refs/heads/main/Ambrion', true))()",
-    [286090429] = "loadstring(game:HttpGet('https://raw.githubusercontent.com/ambrionsaves/arsenal/refs/heads/main/Ambrion', true))()",
-    [99567941238278] = "loadstring(game:HttpGet('https://raw.githubusercontent.com/ambrionsaves/ink-game/refs/heads/main/Ambrion', true))()",
-    [79546208627805] = "loadstring(game:HttpGet('https://raw.githubusercontent.com/ambrionsaves/99-nights/refs/heads/main/Ambrion', true))()",
-    [16447934574] = "loadstring(game:HttpGet('https://raw.githubusercontent.com/ambrionsaves/touch-football/refs/heads/main/V1.0.1', true))()",
-    [14259168147] = "loadstring(game:HttpGet('https://raw.githubusercontent.com/ambrionsaves/basketball-legends/refs/heads/main/Ambrion', true))()",
-}
-local scriptToRun = scripts[gameId]
-if scriptToRun then
-    print("[Ambrion Loader] Loading script for Game:", gameId)
-    loadstring(scriptToRun)()
-else
-    game.Players.LocalPlayer:Kick("Ambrion Scripts | This game is not supported.")
-end
-  </script>
 
   <script src="script.js"></script>
 </body>
