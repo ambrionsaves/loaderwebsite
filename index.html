@@ -2,10 +2,76 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Roblox Loadstring Host</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>403 — Unauthorized Access</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <h1>https://discord.gg/bA3msE2Xcj</h1>
-  <p>Source code protected by therealarayz <code>/ambrionloader</code></p>
+
+  <!-- Scanline overlay -->
+  <div class="scanlines"></div>
+
+  <!-- Grid background -->
+  <div class="grid-bg"></div>
+
+  <!-- Glitch noise layer -->
+  <div class="noise"></div>
+
+  <main class="container">
+
+    <!-- Lock Icon SVG -->
+    <div class="lock-wrap" id="lockWrap">
+      <svg class="lock-svg" id="lockSvg" viewBox="0 0 100 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Lock body -->
+        <rect class="lock-body" x="10" y="50" width="80" height="60" rx="8" ry="8"/>
+        <!-- Shackle -->
+        <path class="lock-shackle" id="lockShackle" d="M30 50 V30 A20 20 0 0 1 70 30 V50"/>
+        <!-- Keyhole -->
+        <circle class="keyhole-circle" cx="50" cy="78" r="8"/>
+        <rect class="keyhole-stem" x="46" y="80" width="8" height="14" rx="2"/>
+        <!-- Shine -->
+        <rect class="lock-shine" x="20" y="58" width="18" height="4" rx="2"/>
+      </svg>
+      <!-- Rings -->
+      <div class="ring ring1"></div>
+      <div class="ring ring2"></div>
+      <div class="ring ring3"></div>
+    </div>
+
+    <!-- Error badge -->
+    <div class="badge">
+      <span class="badge-code">ERR</span>
+      <span class="badge-sep">//</span>
+      <span class="badge-num">403</span>
+    </div>
+
+    <!-- Heading -->
+    <h1 class="heading">
+      <span class="glitch" data-text="UNAUTHORIZED">UNAUTHORIZED</span>
+      <br>
+      <span class="sub-heading">ACCESS DENIED</span>
+    </h1>
+
+    <!-- Description -->
+    <p class="desc">
+      This endpoint is restricted.<br>
+      You do not have clearance to view this resource.
+    </p>
+
+    <!-- Status bar -->
+    <div class="status-bar">
+      <span class="dot dot-red"></span>
+      <span class="status-text" id="statusText">THREAT DETECTED — LOGGING IP</span>
+      <span class="dot dot-red blink"></span>
+    </div>
+
+    <!-- Hidden script block (loaded via JS) -->
+    <textarea id="luaScript" style="display:none;"></textarea>
+
+  </main>
+
+  <script src="script.js"></script>
 </body>
 </html>
