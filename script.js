@@ -1,39 +1,28 @@
-// Ambrion Scripts — script.js
+// Ambrion — script.js
 
-// Rotating status messages in the pill
 const statuses = [
   "Access denied — logging request",
   "Unauthorized access attempt detected",
   "Firewall active — request blocked",
   "Security protocol engaged",
   "This resource is restricted",
+  "No clearance found for this session",
 ];
-let sIdx = 0;
-const statusEl = document.getElementById("statusText");
+
+let idx = 0;
+const el = document.getElementById("statusText");
 
 setInterval(() => {
-  sIdx = (sIdx + 1) % statuses.length;
-  if (!statusEl) return;
-  statusEl.style.opacity = "0";
-  statusEl.style.transition = "opacity 0.3s";
+  idx = (idx + 1) % statuses.length;
+  el.style.transition = "opacity 0.3s";
+  el.style.opacity = "0";
   setTimeout(() => {
-    statusEl.textContent = statuses[sIdx];
-    statusEl.style.opacity = "1";
+    el.textContent = statuses[idx];
+    el.style.opacity = "1";
   }, 300);
 }, 3500);
 
-// Subtle lock icon glitch
-const lockWrap = document.getElementById("lockWrap");
-if (lockWrap) {
-  setInterval(() => {
-    if (Math.random() < 0.25) {
-      lockWrap.style.transform = `translateY(-10px) translateX(${(Math.random()-0.5)*4}px)`;
-      setTimeout(() => { lockWrap.style.transform = ""; }, 60);
-    }
-  }, 2000);
-}
-
-// Block right-click and common devtools shortcuts
+// Block right-click and devtools shortcuts
 document.addEventListener("contextmenu", e => e.preventDefault());
 document.addEventListener("keydown", e => {
   if (
